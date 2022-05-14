@@ -89,6 +89,11 @@ const products = [{
 ];
 
 
+
+
+
+
+
 /* const body = document.querySelector("body") */
 
 
@@ -96,25 +101,48 @@ const body = document.querySelector("body")
 const mainContainer = document.createElement("main")
 mainContainer.classList.add("container")
 
-const sectionProduto = document.createElement("section")
-sectionProduto.classList.add("products-section")
 
-/* const tituloFrutas = document.createElement("h1")
-tituloFrutas.innerText = "Frutas" */
+
+
+
+// Frutas
+
+const sectionFruta = document.createElement("section")
+sectionFruta.classList.add("products-section")
+
+const tituloFrutas = document.createElement("h1")
+tituloFrutas.innerText = "Frutas"
 
 const mainFrutas = document.createElement("main")
 mainFrutas.classList.add("products-content")
 
 const listaFrutas = document.createElement("ul")
 
+/// bebidas
+
+const sectionBebidas = document.createElement("section")
+sectionBebidas.classList.add("products-section")
+
 const tituloBebidas = document.createElement("h1")
 tituloBebidas.innerText = "Bebidas"
+
+const mainBebidas = document.createElement("main")
+mainBebidas.classList.add("products-content")
+
+const listaBebidas = document.createElement("ul")
+
+/// higiene
+
+const sectionHigiene = document.createElement("section")
+sectionHigiene.classList.add("products-section")
 
 const tituloHigiene = document.createElement("h1")
 tituloHigiene.innerText = "Higiene"
 
-const tituloFrutas = document.createElement("h1")
-tituloFrutas.innerText = "Frutas"
+const mainHigiene = document.createElement("main")
+mainHigiene.classList.add("products-content")
+
+const listaHigiene = document.createElement("ul")
 
 
 
@@ -130,12 +158,62 @@ function funCategorias(arrObjectis) {
 
         if (arrObjectis[i].category == "Frutas") {
 
+
             let item = document.createElement("li")
             item.classList.add("product")
 
             let imagem = document.createElement("img")
             imagem.src = `${arrObjectis[i].image}`
             imagem.classList.add("product-img")
+            console.log(typeof arrObjectis[i].image)
+
+            if (arrObjectis[i].image == undefined) {
+                imagem.src = "./img/products/no-img.svg"
+
+            }
+
+
+            let mainProduct = document.createElement("main")
+            mainProduct.classList.add("product-main")
+
+            let title = document.createElement("h1")
+            title.classList.add("product-title")
+            title.innerText = arrObjectis[i].title
+
+            let categoria = document.createElement("h5")
+            categoria.classList.add("product-category")
+            categoria.innerText = arrObjectis[i].category
+
+            let strong = document.createElement("strong")
+            strong.classList.add("product-price")
+            strong.innerText = `R$ ${arrObjectis[i].price}`
+
+
+
+
+            item.appendChild(imagem)
+
+            mainProduct.appendChild(title)
+            mainProduct.appendChild(categoria)
+            mainProduct.appendChild(strong)
+            item.appendChild(mainProduct)
+            listaFrutas.appendChild(item)
+
+        }
+        if (arrObjectis[i].category == "Bebidas") {
+
+
+            let item = document.createElement("li")
+            item.classList.add("product")
+
+            let imagem = document.createElement("img")
+            imagem.src = `${arrObjectis[i].image}`
+            imagem.classList.add("product-img")
+
+            if (arrObjectis[i].image == undefined) {
+                imagem.src = "./img/products/no-img.svg"
+
+            }
 
 
 
@@ -161,7 +239,50 @@ function funCategorias(arrObjectis) {
             mainProduct.appendChild(categoria)
             mainProduct.appendChild(strong)
             item.appendChild(mainProduct)
-            listaFrutas.appendChild(item)
+            listaBebidas.appendChild(item)
+
+        }
+        if (arrObjectis[i].category == "Higiene") {
+
+
+            let item = document.createElement("li")
+            item.classList.add("product")
+
+            let imagem = document.createElement("img")
+            imagem.src = `${arrObjectis[i].image}`
+            imagem.classList.add("product-img")
+
+
+            if (arrObjectis[i].image == undefined) {
+                imagem.src = "./img/products/no-img.svg"
+
+            }
+
+
+
+            let mainProduct = document.createElement("main")
+            mainProduct.classList.add("product-main")
+
+            let title = document.createElement("h1")
+            title.classList.add("product-title")
+            title.innerText = arrObjectis[i].title
+
+            let categoria = document.createElement("h5")
+            categoria.classList.add("product-category")
+            categoria.innerText = arrObjectis[i].category
+
+            let strong = document.createElement("strong")
+            strong.classList.add("product-price")
+            strong.innerText = `R$ ${arrObjectis[i].price}`
+
+
+            item.appendChild(imagem)
+
+            mainProduct.appendChild(title)
+            mainProduct.appendChild(categoria)
+            mainProduct.appendChild(strong)
+            item.appendChild(mainProduct)
+            listaHigiene.appendChild(item)
 
         }
 
@@ -173,13 +294,23 @@ function funCategorias(arrObjectis) {
 
 
 body.appendChild(mainContainer)
-mainContainer.appendChild(sectionProduto)
-sectionProduto.appendChild(tituloFrutas)
-
+mainContainer.appendChild(sectionFruta)
+sectionFruta.appendChild(tituloFrutas)
 mainFrutas.appendChild(listaFrutas)
-sectionProduto.appendChild(mainFrutas)
+sectionFruta.appendChild(mainFrutas)
 
-sectionProduto.appendChild(tituloBebidas)
-sectionProduto.appendChild(tituloHigiene)
+
+
+
+mainContainer.appendChild(sectionBebidas)
+sectionBebidas.appendChild(tituloBebidas)
+mainBebidas.appendChild(listaBebidas)
+sectionBebidas.appendChild(mainBebidas)
+
+
+mainContainer.appendChild(sectionHigiene)
+sectionHigiene.appendChild(tituloHigiene)
+mainHigiene.appendChild(listaHigiene)
+sectionHigiene.appendChild(mainHigiene)
 
 funCategorias(products)
