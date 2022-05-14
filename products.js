@@ -113,8 +113,11 @@ sectionFruta.classList.add("products-section")
 const tituloFrutas = document.createElement("h1")
 tituloFrutas.innerText = "Frutas"
 
-const mainFrutas = document.createElement("main")
+
+const mainFrutas = document.querySelector(".fruits")
 mainFrutas.classList.add("products-content")
+    /* const mainFrutas = document.createElement("main")
+    mainFrutas.classList.add("products-content") */
 
 const listaFrutas = document.createElement("ul")
 
@@ -126,8 +129,11 @@ sectionBebidas.classList.add("products-section")
 const tituloBebidas = document.createElement("h1")
 tituloBebidas.innerText = "Bebidas"
 
-const mainBebidas = document.createElement("main")
+const mainBebidas = document.querySelector(".drinks")
 mainBebidas.classList.add("products-content")
+
+/* const mainBebidas = document.createElement("main")
+mainBebidas.classList.add("products-content") */
 
 const listaBebidas = document.createElement("ul")
 
@@ -139,8 +145,11 @@ sectionHigiene.classList.add("products-section")
 const tituloHigiene = document.createElement("h1")
 tituloHigiene.innerText = "Higiene"
 
-const mainHigiene = document.createElement("main")
+const mainHigiene = document.querySelector(".hygiene")
 mainHigiene.classList.add("products-content")
+
+/* const mainHigiene = document.createElement("main")
+mainHigiene.classList.add("products-content") */
 
 const listaHigiene = document.createElement("ul")
 
@@ -165,7 +174,7 @@ function funCategorias(arrObjectis) {
             let imagem = document.createElement("img")
             imagem.src = `${arrObjectis[i].image}`
             imagem.classList.add("product-img")
-            console.log(typeof arrObjectis[i].image)
+                /* console.log(typeof arrObjectis[i].image) */
 
             if (arrObjectis[i].image == undefined) {
                 imagem.src = "./img/products/no-img.svg"
